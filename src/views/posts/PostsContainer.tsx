@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import Card from '../../components/Card/Card';
 import Modal from '../../components/Modal/Modal';
-import { usePosts } from '../../hooks/usePosts';
-import { Post } from '../../types/post';
+import { usePosts } from '../../Hooks/usePost';
+import { IPost } from '../../Types/post';
 import AddEditPostForm from '../../components/Card/AddEditPostForm';
 import AddPost from '../../components/Card/AddPost';
-import ConfirmModal from '../cofirmModal/ConfirmModal';
+import ConfirmModal from '../confirmModal/ConfirmModal';
 
-const CardContainer: React.FC = () => {
+const PostsContainer: React.FC = () => {
     const { posts, addPost, updatePost, deletePost } = usePosts();
     const [isModalOpen, setModalOpen] = useState(false);
     const [isDeleteModalOpen, setDeleteModalOpen] = useState<number | null>(null);
-    const [currentPost, setCurrentPost] = useState<Post | null>(null);
+    const [currentPost, setCurrentPost] = useState<IPost | null>(null);
 
-    const handleAddEdit = (post: Post) => {
+    const handleAddEdit = (post: IPost) => {
         if (currentPost) {
             updatePost(post);
         } else {
@@ -23,7 +23,7 @@ const CardContainer: React.FC = () => {
         setCurrentPost(null)
     };
 
-    const handleEdit = (post: Post) => {
+    const handleEdit = (post: IPost) => {
         setCurrentPost(post);
         setModalOpen(true);
     };
@@ -34,7 +34,7 @@ const CardContainer: React.FC = () => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xs:grid-cols-1 gap-4">
             {posts.map(post => (
                 <Card key={post.id} post={post} onEdit={() => handleEdit(post)} onDelete={() => handleDelete(post.id)} />
             ))}
@@ -54,7 +54,8 @@ const CardContainer: React.FC = () => {
                 </Modal>
             )}
         </div>
+
     );
 };
 
-export default CardContainer;
+export default PostsContainer;

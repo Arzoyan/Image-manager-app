@@ -1,13 +1,13 @@
 import React from 'react';
-import CardContainer from './views/posts/CardContainer';
+import PostsContainer from './views/posts/PostsContainer';
 import Header from './components/Header/Header';
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="container  mt-[84px] mx-auto p-4">
-        <CardContainer />
+      <main className="container  pt-[84px] px-[24px] flex items-center justify-center bg-gray-100 w-[100%] max-w-[100%]">
+        <PostsContainer />
       </main>
     </>
   );

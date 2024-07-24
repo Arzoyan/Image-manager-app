@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useClickOutside from '../../hooks/useClickOutside';
+import useClickOutside from '../../Hooks/useClickOutside';
 
 interface ModalProps {
     children: React.ReactNode;
@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
 
     return (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50" >
-            <div ref={modalRef} className="bg-white p-8 rounded-[38px] max-w-[802px] w-full">
+            <div ref={modalRef} className="bg-white p-8 rounded-[38px] max-w-[714px] w-full">
                 {children}
             </div>
         </div>

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Post } from '../../types/post';
-import UploadButtonIcon from "../../assets/UploadButtonIcon.svg"
+import { IPost } from '../../Types/post';
+import UploadButtonIcon from "../../Assets/UploadButtonIcon.svg"
 
 interface AddEditPostFormProps {
-    post: Post | null;
-    onSubmit: (post: Post) => void;
+    post: IPost | null;
+    onSubmit: (post: IPost) => void;
 }
 
 const validationSchema = Yup.object({
@@ -59,6 +59,7 @@ const AddEditPostForm: React.FC<AddEditPostFormProps> = ({ post, onSubmit }) => 
             <div className='flex flex-col mb-[8px] text-[#6B6B6B] font-semibold text-lg'>
                 <span>Name</span>
                 <input
+                    maxLength={35}
                     className="w-full max-w-[644px] h-[44px] rounded-[25px] bg-[#E3E3E3] border-0 px-[28px] py-[14px]"
                     type="text"
                     name="title"
