@@ -10,7 +10,6 @@ interface UsePosts {
   deletePost: (id: number) => void;
 }
 
-// Custom hooks for using dispatch and selector with types
 const useAppDispatch = () => useDispatch<AppDispatch>();
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 

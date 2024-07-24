@@ -1,6 +1,6 @@
 import React from 'react';
 import { Post } from '../../types/post';
-import { FaTimes } from 'react-icons/fa'; // Import the X icon from react-icons
+import { FaTimes } from 'react-icons/fa';
 
 interface CardProps {
     post: Post;
@@ -24,6 +24,7 @@ const Card: React.FC<CardProps> = ({ post, onEdit, onDelete }) => {
                 <div className=' p-4 '>
                     <h2 className="text-xl font-bold mb-4 mt-7">{post.title}</h2>
                     <p>{post.description}</p>
+                    <p>{post.date}</p>
                     <div className="flex justify-between mt-4">
                         <button onClick={onEdit} className="bg-blue-500 text-white px-4 py-2 rounded">
                             Edit

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import Card from './Card';
-import Modal from '../Modal/Modal';
+import Card from '../../components/Card/Card';
+import Modal from '../../components/Modal/Modal';
 import { usePosts } from '../../hooks/usePosts';
 import { Post } from '../../types/post';
-import AddEditPostForm from '../../features/posts/AddEditPostForm';
-import AddPost from './AddPost';
+import AddEditPostForm from '../../components/Card/AddEditPostForm';
+import AddPost from '../../components/Card/AddPost';
+import ConfirmModal from '../cofirmModal/ConfirmModal';
 
 const CardContainer: React.FC = () => {
     const { posts, addPost, updatePost, deletePost } = usePosts();
     const [isModalOpen, setModalOpen] = useState(false);
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState<number | null>(null);
     const [currentPost, setCurrentPost] = useState<Post | null>(null);
 
     const handleAddEdit = (post: Post) => {
@@ -27,7 +29,8 @@ const CardContainer: React.FC = () => {
     };
 
     const handleDelete = (id: number) => {
-        deletePost(id);
+        setDeleteModalOpen(id)
+        //;
     };
 
     return (
@@ -39,6 +42,15 @@ const CardContainer: React.FC = () => {
             {isModalOpen && (
                 <Modal onClose={() => setModalOpen(false)}>
                     <AddEditPostForm post={currentPost} onSubmit={handleAddEdit} />
+                </Modal>
+            )}
+            {isDeleteModalOpen && (
+                <Modal onClose={() => setDeleteModalOpen(null)} >
+                    <ConfirmModal onClose={() => setDeleteModalOpen(null)} onSubmit={() => {
+                        deletePost(isDeleteModalOpen)
+                        setDeleteModalOpen(null)
+
+                    }} />
                 </Modal>
             )}
         </div>

@@ -1,12 +1,5 @@
-// src/features/posts/postsSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface Post {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-}
+import { Post } from "../../types/post";
 
 export interface PostsState {
   posts: Post[];

@@ -1,13 +1,15 @@
 import React from 'react';
-import CardContainer from './components/Card/CardContainer';
-import Header from './components/header/Header';
+import CardContainer from './views/posts/CardContainer';
+import Header from './components/Header/Header';
 
 const App: React.FC = () => {
   return (
-    <div className="container mx-auto p-4">
+    <>
       <Header />
-      <CardContainer />
-    </div>
+      <main className="container  mt-[84px] mx-auto p-4">
+        <CardContainer />
+      </main>
+    </>
   );
 };
 
