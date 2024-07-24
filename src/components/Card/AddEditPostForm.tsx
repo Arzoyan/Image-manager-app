@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { useFormik, Field } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Post } from '../../types/post';
-import { FaUpload } from 'react-icons/fa';
+import UploadButtonIcon from "../../assets/UploadButtonIcon.svg"
 
 interface AddEditPostFormProps {
     post: Post | null;
@@ -87,21 +87,31 @@ const AddEditPostForm: React.FC<AddEditPostFormProps> = ({ post, onSubmit }) => 
                 />
                 {formik.errors.date && <div className="text-red-500">{formik.errors.date}</div>}
             </div>
+
             <div>
-                <input
-                    className="border p-2"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                />
-                {formik.values.image && <img src={formik.values.image} alt="Preview" className="mt-2" width="200px" />}
-                {formik.errors.image && <div className="text-red-500">{formik.errors.image}</div>}
-                {formik.values.image && <button
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                    type="submit"
-                >
-                    {post ? 'Update Post' : 'Add Post'}
-                </button>}
+                {!formik.values.image && <label className={`w-[188px] h-[36px] rounded-[9px] flex flex-row justify-around items-center px-4 py-6 bg-gradient-to-r from-orange-300 to-orange-500 text-blue rounded-lg shadow-lg 
+                     tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white`}>
+                    <img src={UploadButtonIcon} alt="Upload Icon" className="w-[24px] h-[24px] " />
+                    <span className="mt-2 text-base leading-normal text-white">Upload Image</span>
+                    <input
+                        className="hidden border p-2"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
+                </label>}
+                <div className={"flex flex-row justify-between items-center "}>
+
+                    {formik.values.image && <img src={formik.values.image} alt="Preview" className="mt-2 w-[172px] h-[118px] rounded-[30px] " />}
+                    {formik.errors.image && <div className="text-red-500">{formik.errors.image}</div>}
+
+                    {formik.values.image && <button
+                        className="bg-gradient-to-r from-orange-300 to-orange-500 text-white px-4 py-2 rounded "
+                        type="submit"
+                    >
+                        {'Save'}
+                    </button>}
+                </div>
             </div>
         </form>
     );
