@@ -1,12 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from "./Posts/slice";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { configureStore } from '@reduxjs/toolkit';
+import postsReducer from './posts/slice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 // Configure the store with the postsReducer
 export const store = configureStore({
-  reducer: {
-    posts: postsReducer,
-  },
+   reducer: {
+      posts: postsReducer,
+   },
 });
 
 // Define RootState type
