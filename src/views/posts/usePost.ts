@@ -1,6 +1,6 @@
-import { RootState, useAppSelector, useAppDispatch } from "../store/index";
-import { IPost } from "../Types/post";
-import { addPost, updatePost, deletePost } from "../store/Posts/slice";
+import { RootState, useAppSelector, useAppDispatch } from "../../store/index";
+import { IPost } from "../../Types/post";
+import { addPost, updatePost, deletePost } from "../../store/Posts/slice";
 
 interface UsePosts {
   posts: IPost[];

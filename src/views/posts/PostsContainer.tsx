@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../../components/Card/Card';
 import Modal from '../../components/Modal/Modal';
-import { usePosts } from '../../Hooks/usePost';
+import { usePosts } from './usePost';
 import { IPost } from '../../Types/post';
 import AddEditPostForm from '../../components/Card/AddEditPostForm';
 import AddPost from '../../components/Card/AddPost';
