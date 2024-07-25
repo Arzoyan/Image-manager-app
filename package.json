@@ -20,7 +20,9 @@
    },
    "lint-staged": {
       "src/**/*.{js,jsx,ts,tsx}": [
-         "npm run lint"
+         "npx prettier --write .",
+         "npm run lint",
+         "npm run build"
       ]
    },
    "dependencies": {
