@@ -4,6 +4,12 @@
 
 Using this project you can Adding, editing and deleting of posts with uploading images
 
+## Demo
+
+```bash
+$ https://image-manager-app-csq4.onrender.com/
+```
+
 ## Installation
 
 ```bash
